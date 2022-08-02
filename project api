@@ -1,0 +1,236 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prjtstyle.css" type="text/css">
+    <title>PROJECT FOOD RECIPE</title>
+</head>
+<body>
+    <div class="topic">
+    <h2>Lucos Special Food Menu</h2>
+    <img src="Sky.jpg.jpg" height="10px" width="10px" alt="Search"/>
+    </div>
+    <section class="container"> 
+    <div class="search">
+        <input type="text" placeholder="Search Favourite">
+        <button class="btn">Menu</button>
+    </div>
+    <div id="recipecontainer">
+    <div class="recipe">
+        <div class="recipe-tittle">Food Recipe</div>
+        <div class="recipe-image">
+        <img src="Lucos.jpg.jpg" height="50px" width="50px" alt="Recipe"/>
+        </div>
+        <div class="recipe-text">
+            <ul>
+                <li>Stage 1</li>
+                <li>Stage 2</li>
+                <li>Stage 3</li>
+                <li>Stage 4</li>
+                <li>Stage 5</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</section>
+<Script src="prjtprgm.js" type="text/js"></Script>
+</body>
+</html>
+
+
+css styling
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.topic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    color: #ffffff;
+    flex-wrap: wrap;
+    background-color: hsla(0, 0%, 0%, 0.548);
+    height: 20px;
+    font-size: 6px;
+    gap: 2px;
+    padding-right: 5px;
+    border-right: 1px;
+}
+.topic img{
+    filter: grayscale(1);
+
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 3px 6px;
+    box-shadow: 0px 0px 1px 0px blueviolet;
+}
+.search input{
+    width: 50%;
+    padding: 1px 3px;
+    border: none;
+    border-left: 1px solid lightslategrey;
+    border-bottom: 1px solid transparent;
+    line-height: 1.5px;
+    font-size: 12px;
+    outline: none;
+    line-height: 1.2;
+    outline: none;
+    transition: all 200ms ease-in-out;
+    box-shadow: 0px 0px 1px 0px blueviolet;
+   }
+.search input:focus{
+    border-left-color: transparent;
+    border-bottom-color: blueviolet;
+    width: 51%;
+}
+.btn{
+    background: transparent;
+    border-radius: 2px;
+    user-select: none;
+    font-size: 12px;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    transition: 1s ease-out;
+}
+.btn:hover{
+    background: #007bff;
+    border-color: gold;
+    color: lightslategrey;
+}
+#recipecontainer{
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.recipe{
+    height: 120px;
+    width: 100px;
+    padding: 4px;
+    box-shadow: 0px 0px 2px 0px blueviolet;
+    margin: 3px;
+    transition: all 200ms ease-in-out;
+}
+.recipe-tittle{
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6px;
+}
+.recipe img{
+    height: 100%;
+    width: 100%;
+}
+.recipe-text{
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+    background: rgba(0, 100, 110, 0.363);
+    margin-top: 2px;
+    overflow: hidden;
+    overflow-y: auto;
+    transform: scale(1);
+    transform-origin: top left;
+    
+}
+.recipe-text ul{
+    list-style: circle;
+    list-style-position: inside;
+    text-align: left;
+    padding: 1px;
+    font-size: 8px;
+
+}
+.recipe-text >li{
+    padding: 1px;
+}
+.recipe:hover .recipe-text{
+    height: 35px;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+   
+}
+.recipe:hover{
+    height: 155px;
+}
+/*@media screen and (max-width: 1700px){
+    body{
+        background-color: green;
+        color: pink;
+    }
+}
+@media screen and (max-width: 600px){
+    body{
+        background-color: blue;
+        color: white;
+    }
+}
+
+
+javascript 
+
+.addEventListener(typeof onload, () => {
+    let input = document.getElementById("input").value
+
+function loadrecipes() {
+  const url = baseUrl 
+  fetch("${baseUrl}${input}").then((Response)=>Response.json()).then((data)=>console.log(data));
+  fetch(url)
+  .then((Response) => Response.json())
+  .then((data) => console.log(data))
+}
+loadrecipes();
+
+
+/*const recipecontainer = document.getElementById("recipecontainer");
+
+document.getElementById("btn").addeventlistener(click,()=>{
+  let input = document.getElementById("input").value
+  fetch("${baseUrl}${input}").then((Response)=>Response.json()).then((data)=>console.log(data));
+  })*/
+/*function loadrecipes(types= "pancer") {
+  const url=baseUrl+"&q=$[type]";
+  fetch(url)
+  .then(res=> res.json())
+  .then(data=>console.log(data.hits))
+  .catch((error)=>console.log(error))
+
+  console.log(input)
+
+}
+
+
+const recipecontainer = document.getElementById("recipecontainer");
+
+BigInt.addeventlistener(click,()=>{
+  let input = document.getElementById("input").value
+  console.log(input)
+})
+
+function loadrecipes(types= "pancer") {
+  const url=baseUrl+"&q=$[type]";
+  fetch(url)
+  .then(res=> res.json())
+  .then(data=>console.log(data.hits))
+  .catch((error)=>console.log(error))
+}
